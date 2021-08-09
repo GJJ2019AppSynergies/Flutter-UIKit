@@ -1,5 +1,4 @@
 import 'package:agora_rtc_engine/rtc_engine.dart';
-
 import 'package:agora_uikit/models/agora_connection_data.dart';
 import 'package:agora_uikit/src/enums.dart';
 
@@ -59,8 +58,7 @@ class AgoraSettings {
       clientRole: clientRole ?? this.clientRole,
       localUid: localUid ?? this.localUid,
       generatedToken: generatedToken ?? this.generatedToken,
-      isActiveSpeakerDisabled:
-          isActiveSpeakerDisabled ?? this.isActiveSpeakerDisabled,
+      isActiveSpeakerDisabled: isActiveSpeakerDisabled ?? this.isActiveSpeakerDisabled,
       layoutType: layoutType ?? this.layoutType,
     );
   }
