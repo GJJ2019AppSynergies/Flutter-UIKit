@@ -33,6 +33,10 @@ class AgoraVideoViewer extends StatefulWidget {
   /// Display the total number of users in a channel.
   final bool showNumberOfUsers;
 
+  /// to dispose [AgoraClient] or not
+  /// by default it will be [true]
+  final bool disposeSessionController;
+
   const AgoraVideoViewer({
     Key? key,
     required this.client,
@@ -44,6 +48,7 @@ class AgoraVideoViewer extends StatefulWidget {
     this.disabledVideoWidget = const DisabledVideoWidget(),
     this.showAVState = false,
     this.showNumberOfUsers = false,
+    this.disposeSessionController = true,
   }) : super(key: key);
 
   @override
@@ -57,12 +62,13 @@ class _AgoraVideoViewerState extends State<AgoraVideoViewer> {
     super.initState();
   }
 
-  /// removing dispose method will dispose manuallity in mobx store
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   widget.client.sessionController.dispose();
-  // }
+  @override
+  void dispose() {
+    super.dispose();
+    if (widget.disposeSessionController) {
+      widget.client.sessionController.dispose();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
