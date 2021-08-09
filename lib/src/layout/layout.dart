@@ -53,16 +53,16 @@ class AgoraVideoViewer extends StatefulWidget {
 class _AgoraVideoViewerState extends State<AgoraVideoViewer> {
   @override
   void initState() {
-    widget.client.sessionController
-        .updateLayoutType(updatedLayout: widget.layoutType);
+    widget.client.sessionController.updateLayoutType(updatedLayout: widget.layoutType);
     super.initState();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    widget.client.sessionController.dispose();
-  }
+  /// removing dispose method will dispose manuallity in mobx store
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   widget.client.sessionController.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -72,11 +72,9 @@ class _AgoraVideoViewerState extends State<AgoraVideoViewer> {
           ? FloatingLayout(
               client: widget.client,
               disabledVideoWidget: widget.disabledVideoWidget,
-              floatingLayoutContainerHeight:
-                  widget.floatingLayoutContainerHeight,
+              floatingLayoutContainerHeight: widget.floatingLayoutContainerHeight,
               floatingLayoutContainerWidth: widget.floatingLayoutContainerWidth,
-              floatingLayoutMainViewPadding:
-                  widget.floatingLayoutMainViewPadding,
+              floatingLayoutMainViewPadding: widget.floatingLayoutMainViewPadding,
               floatingLayoutSubViewPadding: widget.floatingLayoutSubViewPadding,
               showAVState: widget.showAVState,
               showNumberOfUsers: widget.showNumberOfUsers,
