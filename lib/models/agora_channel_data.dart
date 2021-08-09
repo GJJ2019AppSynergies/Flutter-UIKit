@@ -104,8 +104,8 @@ class AgoraChannelData {
   final bool isActiveSpeakerDisabled;
 
   AgoraChannelData({
-    this.channelProfile = ChannelProfile.Communication,
-    this.clientRole = ClientRole.Broadcaster,
+    required this.channelProfile,
+    required this.clientRole,
     this.videoEncoderConfiguration,
     this.setCameraAutoFocusFaceModeEnabled = false,
     this.enableDualStreamMode = false,
@@ -139,26 +139,18 @@ class AgoraChannelData {
     return AgoraChannelData(
       channelProfile: channelProfile ?? this.channelProfile,
       clientRole: clientRole ?? this.clientRole,
-      videoEncoderConfiguration:
-          videoEncoderConfiguration ?? this.videoEncoderConfiguration,
-      setCameraAutoFocusFaceModeEnabled: setCameraAutoFocusFaceModeEnabled ??
-          this.setCameraAutoFocusFaceModeEnabled,
+      videoEncoderConfiguration: videoEncoderConfiguration ?? this.videoEncoderConfiguration,
+      setCameraAutoFocusFaceModeEnabled: setCameraAutoFocusFaceModeEnabled ?? this.setCameraAutoFocusFaceModeEnabled,
       enableDualStreamMode: enableDualStreamMode ?? this.enableDualStreamMode,
-      localPublishFallbackOption:
-          localPublishFallbackOption ?? this.localPublishFallbackOption,
-      remoteSubscribeFallbackOption:
-          remoteSubscribeFallbackOption ?? this.remoteSubscribeFallbackOption,
+      localPublishFallbackOption: localPublishFallbackOption ?? this.localPublishFallbackOption,
+      remoteSubscribeFallbackOption: remoteSubscribeFallbackOption ?? this.remoteSubscribeFallbackOption,
       audioProfile: audioProfile ?? this.audioProfile,
       audioScenario: audioScenario ?? this.audioScenario,
-      setBeautyEffectOptions:
-          setBeautyEffectOptions ?? this.setBeautyEffectOptions,
+      setBeautyEffectOptions: setBeautyEffectOptions ?? this.setBeautyEffectOptions,
       setCameraTorchOn: setCameraTorchOn ?? this.setCameraTorchOn,
-      muteAllRemoteAudioStreams:
-          muteAllRemoteAudioStreams ?? this.muteAllRemoteAudioStreams,
-      muteAllRemoteVideoStreams:
-          muteAllRemoteVideoStreams ?? this.muteAllRemoteVideoStreams,
-      isActiveSpeakerDisabled:
-          isActiveSpeakerDisabled ?? this.isActiveSpeakerDisabled,
+      muteAllRemoteAudioStreams: muteAllRemoteAudioStreams ?? this.muteAllRemoteAudioStreams,
+      muteAllRemoteVideoStreams: muteAllRemoteVideoStreams ?? this.muteAllRemoteVideoStreams,
+      isActiveSpeakerDisabled: isActiveSpeakerDisabled ?? this.isActiveSpeakerDisabled,
     );
   }
 }
